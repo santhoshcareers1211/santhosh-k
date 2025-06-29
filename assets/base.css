@@ -3924,6 +3924,11 @@ details-disclosure > details {
 .main-hotspot-heading {
   text-align: left;
   font-size: 36px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: var(--font-body-subheading);
+  line-height: 120%;
+
 }
 
 /* popup */
