@@ -3929,7 +3929,6 @@ details-disclosure > details {
   font-family: var(--font-body-subheading);
   line-height: 120%;
 }
-
 /* popup */
 .hotspot-popup {
   position: fixed;
