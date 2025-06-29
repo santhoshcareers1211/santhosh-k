@@ -1,61 +1,74 @@
 {% assign show_text = false %}
-{% if section.settings.heading != blank or section.settings.description != blank or section.settings.button_text != blank %}
+{% if section.settings.heading != blank
+  or section.settings.description != blank
+  or section.settings.button_text != blank
+%}
   {% assign show_text = true %}
 {% endif %}
 
 {% if show_text %}
   <div class="hero-banner-text-wrapper {% if section.settings.layout_direction == 'image_left' %}image-left{% else %}image-right{% endif %}">
     <div class="herobanner-container">
-    {% if section.settings.layout_direction == 'image_left' %}
-      <div class="hero-image-block">
-        {% render 'responsive-picture', desktopImage: section.settings.banner_image , mobileImage:section.settings.mobile_banner_image  %}
-      </div>
-      <div class="hero-text-block">
-        <div class="hero-text-inner">
-          {% if section.settings.heading != blank %}
-            <h2>{{ section.settings.heading }}</h2>
-          {% endif %}
-          {% if section.settings.description != blank %}
-            <p>{{ section.settings.description }}</p>
-          {% endif %}
-          {% if section.settings.button_text != blank %}
-            <a href="{{ section.settings.button_link }}" class="hero-button">{{ section.settings.button_text }}
-      {% render 'icon-arrowsleft' %}
-            </a>
-          {% endif %}
+      {% if section.settings.layout_direction == 'image_left' %}
+        <div class="hero-image-block">
+          {% render 'responsive-picture',
+            desktopImage: section.settings.banner_image,
+            mobileImage: section.settings.mobile_banner_image
+          %}
         </div>
-      </div>
-</div>
-    {% else %}
-      <div class="hero-text-block">
-        <div class="hero-text-inner">
-          {% if section.settings.heading != blank %}
-            <h2>{{ section.settings.heading }}</h2>
-          {% endif %}
-          {% if section.settings.description != blank %}
-            <p class="desktop-description">{{ section.settings.description }}</p>
-          {% endif %}
-          {% if section.settings.description != blank %}
-            <p class="mobile-description">{{ section.settings.mobile_description }}</p>
-          {% endif %}
-          {% if section.settings.button_text != blank%}
-            <a href="{{ section.settings.button_link }}" class="hero-button">{{ section.settings.button_text }}
-           {% render 'icon-showarrow' %}
-            </a>
-          {% endif %}
+        <div class="hero-text-block">
+          <div class="hero-text-inner">
+            {% if section.settings.heading != blank %}
+              <h2>{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <p>{{ section.settings.description }}</p>
+            {% endif %}
+            {% if section.settings.button_text != blank %}
+              <a href="{{ section.settings.button_link }}" class="hero-button">
+                {{- section.settings.button_text }}
+                {% render 'icon-arrowsleft' %}
+              </a>
+            {% endif %}
+          </div>
         </div>
-      </div>
-      <div class="hero-image-block">
-        {% render 'responsive-picture', desktopImage: section.settings.banner_image ,mobileImage:section.settings.mobile_banner_image %}
-      </div>
-    {% endif %}
-  </div>
+        </div>
+      {% else %}
+        <div class="hero-text-block">
+          <div class="hero-text-inner">
+            {% if section.settings.heading != blank %}
+              <h2>{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <p class="desktop-description">{{ section.settings.description }}</p>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <p class="mobile-description">{{ section.settings.mobile_description }}</p>
+            {% endif %}
+            {% if section.settings.button_text != blank %}
+              <a href="{{ section.settings.button_link }}" class="hero-button">
+                {{- section.settings.button_text }}
+                {% render 'icon-showarrow' %}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="hero-image-block">
+          {% render 'responsive-picture',
+            desktopImage: section.settings.banner_image,
+            mobileImage: section.settings.mobile_banner_image
+          %}
+        </div>
+      {% endif %}
+    </div>
 {% else %}
   <div class="hero-image-only">
-    {% render 'responsive-picture', desktopImage: section.settings.banner_image ,mobileImage:section.settings.mobile_banner_image %}
+    {% render 'responsive-picture',
+      desktopImage: section.settings.banner_image,
+      mobileImage: section.settings.mobile_banner_image
+    %}
   </div>
 {% endif %}
-
 
 {% schema %}
 {
@@ -121,4 +134,3 @@
   ]
 }
 {% endschema %}
-

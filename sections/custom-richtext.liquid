@@ -1,4 +1,7 @@
-<div class="custom-richtext-wrapper" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; text-align: {{ section.settings.text_alignment }};">
+<div
+  class="custom-richtext-wrapper"
+  style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; text-align: {{ section.settings.text_alignment }};"
+>
   <div class="custom-richtext-content page-width">
     {% if section.settings.heading != blank %}
       <h2 class="custom-richtext-heading">{{ section.settings.heading }}</h2>
@@ -6,10 +9,8 @@
     {% if section.settings.heading_mobile != blank %}
       <h2 class="custom-richtext-heading heading-mobile">{{ section.settings.heading_mobile }}</h2>
     {% endif %}
-
   </div>
 </div>
-
 
 {% schema %}
 {
@@ -61,4 +62,3 @@
   ]
 }
 {% endschema %}
-

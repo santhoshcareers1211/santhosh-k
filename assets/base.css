@@ -3690,7 +3690,7 @@ details-disclosure > details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   padding: 25px 50px;
   position: relative;
   z-index: 1000;
@@ -3703,7 +3703,8 @@ details-disclosure > details {
   height: 100%;
 }
 
-.announcement-text , .mobile-announcement-text {
+.announcement-text,
+.mobile-announcement-text {
   font-family: var(--font-body-heading);
   font-weight: 400;
   font-size: 16px;
@@ -3735,7 +3736,7 @@ details-disclosure > details {
   display: none;
   flex-direction: column;
   align-items: center;
-  background: #F2F2F2;
+  background: #f2f2f2;
   padding: 20px;
   text-align: center;
   position: absolute;
@@ -3745,10 +3746,10 @@ details-disclosure > details {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
-.desktop-description{
+.desktop-description {
   display: block;
 }
-.mobile-description{
+.mobile-description {
   display: none;
 }
 /* Mobile Styles */
@@ -3798,7 +3799,6 @@ details-disclosure > details {
   }
 }
 
-
 .hero-banner-text-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -3812,7 +3812,7 @@ details-disclosure > details {
   background: #fff;
 }
 
-.hero-text-inner{
+.hero-text-inner {
   width: 100%;
 }
 .hero-text-inner h2 {
@@ -3869,8 +3869,6 @@ details-disclosure > details {
 .hero-image-only {
   width: 100%;
 }
-
-
 
 /* hotspot section */
 .hotspot-grid {
@@ -4229,19 +4227,19 @@ hotspot-section .hotspot-overlay {
   position: absolute;
   right: 0;
 }
-.custom-richtext-heading{
+.custom-richtext-heading {
   padding: 10px 0px;
   margin: 0;
-   font-size: 16px;
+  font-size: 16px;
   font-family: var(--font-body-heading);
   font-weight: 400;
   text-transform: uppercase;
-   display: block;
+  display: block;
 }
 .heading-mobile {
   display: none;
 }
-.herobanner-container{
+.herobanner-container {
   display: flex;
 }
 @media screen and (max-width: 749px) {
@@ -4250,14 +4248,14 @@ hotspot-section .hotspot-overlay {
     grid-template-columns: repeat(2, 1fr);
     gap: 4px;
   }
-  .custom-richtext-heading{
+  .custom-richtext-heading {
     display: none;
   }
   .heading-mobile {
-  display: block;
-  letter-spacing: normal;
-  white-space: nowrap;
-}
+    display: block;
+    letter-spacing: normal;
+    white-space: nowrap;
+  }
   .hotspot-plus-dot {
     width: 15.71px;
     height: 15.71px;
@@ -4274,40 +4272,40 @@ hotspot-section .hotspot-overlay {
     text-align: center;
     margin: 42px 0px 0px 0px;
   }
-  .hero-text-block{
+  .hero-text-block {
     width: 100%;
     padding: 0px 18px;
   }
-  .hero-image-only{
+  .hero-image-only {
     display: none;
   }
-  .hero-image-block{
+  .hero-image-block {
     width: 100%;
   }
-  .hero-text-inner p{
-   font-size: 16px;
-   text-align: center;
-   margin-top: 24px;
+  .hero-text-inner p {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 24px;
   }
-  .hero-text-inner{
+  .hero-text-inner {
     position: relative;
   }
-  .hero-button{
+  .hero-button {
     position: absolute;
     bottom: -140px;
     left: 25%;
   }
-  .herobanner-container{
+  .herobanner-container {
     display: unset;
   }
-  .announcement-logo{
+  .announcement-logo {
     width: 100px;
     height: auto;
   }
-  .desktop-description{
-  display: none;
+  .desktop-description {
+    display: none;
   }
-  .mobile-description{
-  display: block;
-}
+  .mobile-description {
+    display: block;
+  }
 }
