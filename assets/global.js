@@ -1330,3 +1330,194 @@ class CartPerformance {
     );
   }
 }
+
+
+// Announcement Bar Mega Menu
+ function toggleAnnouncementDropdown() {
+const dropdown = document.getElementById("announcementDropdown");
+  const hamburgerIcon = document.getElementById("hamburgerIcon");
+  const closeIcon = document.getElementById("closeIcon");
+  const isActive = dropdown.classList.toggle("active");
+  if (isActive) {
+    hamburgerIcon.classList.add("hidden");
+    closeIcon.classList.remove("hidden");
+  } else {
+    hamburgerIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+  }
+
+  }
+
+// Hotspot
+  class HotspotSection extends HTMLElement {
+  constructor() {
+    super();
+    this.selectedOptions = {};
+    this.currentVariants = [];
+  }
+
+  connectedCallback() {
+    this.popup = this.querySelector('#hotspot-shared-popup');
+    this.overlay = this.querySelector('#hotspot-overlay');
+    this.titleEl = this.querySelector('#popup-title');
+    this.descEl = this.querySelector('#popup-description');
+    this.linkEl = this.querySelector('#popup-link');
+    this.imageEl = this.querySelector('#popup-image');
+    this.priceEl = this.querySelector('#popup-price');
+
+    this.initHotspotClicks();
+    this.initVariantSelection();
+    this.initAddToCart();
+    this.initCustomDropdown();
+  }
+
+  initHotspotClicks() {
+    this.querySelectorAll('.hotspot-positions').forEach(hotspot => {
+      hotspot.addEventListener('click', () => {
+        this.titleEl.textContent = hotspot.dataset.title;
+        this.priceEl.textContent = hotspot.dataset.price;
+        this.imageEl.setAttribute("src", hotspot.dataset.image);
+        this.linkEl.setAttribute("href", hotspot.dataset.url);
+        this.descEl.textContent = hotspot.dataset.description;
+
+        this.selectedOptions = {};
+        this.currentVariants = JSON.parse(hotspot.dataset.variants || '[]');
+        this.optionNames = JSON.parse(hotspot.dataset.optionNames || '[]');
+
+        this.querySelectorAll('.variant-input').forEach(input => input.checked = false);
+        this.querySelectorAll('.variant-select').forEach(select => select.value = "");
+
+        this.popup?.classList.add('show');
+        this.overlay?.classList.add("active")
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    this.querySelector('.hotspot-popup-close')?.addEventListener('click', () => {
+      this.popup?.classList.remove('show');
+      this.overlay?.classList.remove("active")
+      document.body.style.overflow = '';
+    });
+
+     this.overlay.addEventListener("click",()=>{
+      this.popup?.classList.remove('show');
+      this.overlay?.classList.remove("active")
+      document.body.style.overflow = '';
+   })
+  }
+
+  initVariantSelection() {
+    this.addEventListener('change', (e) => {
+      const target = e.target;
+
+      if (target.classList.contains('variant-input')) {
+        this.selectedOptions[target.dataset.option] = target.value;
+      }
+
+      if (target.classList.contains('variant-select')) {
+        this.selectedOptions[target.dataset.option] = target.value;
+      }
+
+      this.updateSelectedVariantId();
+    });
+  }
+
+  updateSelectedVariantId() {
+  const matchedVariant = this.currentVariants.find(variant => {
+    return variant.options.every((value, index) => {
+      const optionName = this.optionNames?.[index];
+      const selectedValue = this.selectedOptions[optionName];
+      const isMatch = selectedValue === value;
+      return isMatch;
+    });
+  });
+
+    if (matchedVariant) {
+      this.linkEl.dataset.variantId = matchedVariant.id;
+      console.log('Selected Variant ID:', matchedVariant.id);
+    }
+  }
+
+  // custom dropdown
+  initCustomDropdown() {
+  this.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    const menu = dropdown.querySelector('.dropdown-menu');
+    const items = menu.querySelectorAll('.dropdown-item');
+    const hiddenInput = this.querySelector(`.variant-select[data-option="${dropdown.dataset.option}"]`);
+
+    toggle.addEventListener('click', () => {
+      dropdown.classList.toggle('open');
+    });
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const selectedValue = item.dataset.value;
+        toggle.firstChild.textContent = selectedValue;
+        hiddenInput.value = selectedValue;
+        hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+        dropdown.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  });
+}
+
+// Atc
+  initAddToCart() {
+  this.linkEl?.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const variantId = this.linkEl.dataset.variantId;
+    if (!variantId) {
+      document.querySelector(".variant-error-message").classList.remove("hidden");
+      return;
+    }
+
+    const selectedColor = this.selectedOptions["Color"];
+    const selectedSize = this.selectedOptions["Size"];
+
+    console.log("Selected Color:", selectedColor);
+    console.log("Selected Size:", selectedSize);
+
+    const formData = {
+      items: [{
+        id: parseInt(variantId),
+        quantity: 1
+      }]
+    };
+
+    // Adding the extra product
+    const isBlackAndMedium = selectedColor === "Black" && selectedSize === "M";
+    if (isBlackAndMedium) {
+      const softWinterJacketVariantId = 41827167502399;
+      formData.items.push({
+        id: softWinterJacketVariantId,
+        quantity: 1
+      })
+    }
+
+    fetch(`${window.Shopify.routes.root}cart/add.js`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Added to cart:', data);
+        window.location.href = `${window.Shopify.routes.root}cart`;
+      })
+      .catch((error) => {
+        console.error('Error adding to cart:', error);
+      });
+  });
+}
+
+}
+
+customElements.define('hotspot-section', HotspotSection);

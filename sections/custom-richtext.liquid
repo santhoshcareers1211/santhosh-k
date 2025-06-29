@@ -1,0 +1,64 @@
+<div class="custom-richtext-wrapper" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; text-align: {{ section.settings.text_alignment }};">
+  <div class="custom-richtext-content page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="custom-richtext-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.heading_mobile != blank %}
+      <h2 class="custom-richtext-heading heading-mobile">{{ section.settings.heading_mobile }}</h2>
+    {% endif %}
+
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom Rich Text",
+  "tag": "section",
+  "class": "custom-richtext-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+    },
+    {
+      "type": "text",
+      "id": "heading_mobile",
+      "label": "Mobile Heading",
+      "default": "SUSTAINABLE ACTIVEWEAR"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Rich Text",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}
+
