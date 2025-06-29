@@ -118,7 +118,7 @@
         "section-padding-top": 90,
         "section-padding-bottom": 30,
         "mobile-padding-top": 40,
-        "mobile-padding-bottom": 40
+        "mobile-padding-bottom": 20
       }
     }
   },
