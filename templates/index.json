@@ -16,6 +16,7 @@
         "banner_image": "shopify://shop_images/Frame.png",
         "heading": "",
         "description": "",
+        "mobile_description": "Discover Joy: Your Ultimate Holiday Gift Destination.",
         "button_text": "",
         "button_link": "",
         "layout_direction": "image_right"
@@ -28,6 +29,7 @@
         "banner_image": "shopify://shop_images/Frame_1.png",
         "heading": "The Gift Guide",
         "description": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "mobile_description": "Discover Joy: Your Ultimate Holiday Gift Destination.",
         "button_text": "Shop Now",
         "button_link": "",
         "layout_direction": "image_right"
@@ -56,6 +58,33 @@
             "position_left": 50
           }
         },
+        "hotspot_KFDR4K": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_823.png",
+            "product": "blue-silk-tuxedo",
+            "position_top": 50,
+            "position_left": 50
+          }
+        },
+        "hotspot_hnefrn": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_824.png",
+            "product": "chequered-red-shirt",
+            "position_top": 50,
+            "position_left": 50
+          }
+        },
+        "hotspot_dY4AQY": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_825.png",
+            "product": "classic-leather-jacket",
+            "position_top": 50,
+            "position_left": 50
+          }
+        },
         "hotspot_8w3pVw": {
           "type": "hotspot",
           "settings": {
@@ -64,11 +93,24 @@
             "position_top": 50,
             "position_left": 50
           }
+        },
+        "hotspot_RiitPh": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_827.png",
+            "product": "dark-denim-top",
+            "position_top": 50,
+            "position_left": 50
+          }
         }
       },
       "block_order": [
         "hotspot_whPxDV",
-        "hotspot_8w3pVw"
+        "hotspot_KFDR4K",
+        "hotspot_hnefrn",
+        "hotspot_dY4AQY",
+        "hotspot_8w3pVw",
+        "hotspot_RiitPh"
       ],
       "name": "Hotspot Image Grid",
       "settings": {
