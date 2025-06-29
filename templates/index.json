@@ -54,8 +54,8 @@
           "settings": {
             "hotspot_image": "shopify://shop_images/image_822.png",
             "product": "black-leather-bag",
-            "position_top": 50,
-            "position_left": 50
+            "position_top": 55,
+            "position_left": 60
           }
         },
         "hotspot_KFDR4K": {
@@ -63,8 +63,8 @@
           "settings": {
             "hotspot_image": "shopify://shop_images/image_823.png",
             "product": "blue-silk-tuxedo",
-            "position_top": 50,
-            "position_left": 50
+            "position_top": 53,
+            "position_left": 85
           }
         },
         "hotspot_hnefrn": {
@@ -72,8 +72,8 @@
           "settings": {
             "hotspot_image": "shopify://shop_images/image_824.png",
             "product": "chequered-red-shirt",
-            "position_top": 32,
-            "position_left": 50
+            "position_top": 20,
+            "position_left": 62
           }
         },
         "hotspot_dY4AQY": {
