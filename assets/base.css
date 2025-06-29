@@ -3925,7 +3925,7 @@ details-disclosure > details {
   text-align: left;
   font-size: 36px;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-family: var(--font-body-subheading);
   line-height: 120%;
 }
