@@ -1,0 +1,193 @@
+{%- style -%}
+  #hotspot--{{ section.id }} {
+        padding-top: {{ section.settings.section-padding-top | append: 'px' }};
+        padding-bottom: {{ section.settings.section-padding-bottom | append: 'px' }};
+      }
+{%- endstyle -%}
+
+<hotspot-section class="" id="hotspot--{{ section.id }}">
+  <h1 class="main-hotspot-heading">{{ section.settings.hot_spot_heading }}</h1>
+  <div class="hotspot-grid page-width">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      <div class="hotspot-image-wrapper">
+        <div class="hotspot-image">
+          {% if block.settings.hotspot_image != blank %}
+            {% render 'responsive-picture', desktopImage: block.settings.hotspot_image %}
+            {% if product %}
+              <a
+                class="hotspot-positions"
+                href="javascript:void(0);"
+                data-title="{{ product.title | escape }}"
+                data-description="{{ product.description | strip_html | truncate: 100 | escape }}"
+                data-url="{{ product.url }}"
+                data-image="{{ product.featured_image | image_url: width: 400 }}"
+                data-price="{{ product.price | money }}"
+                data-variants="{{ product.variants | json | escape }}"
+                data-option-names="{{ product.options | json | escape }}"
+                style="top: {{ block.settings.position_top }}%; left: {{ block.settings.position_left }}%;"
+              >
+                <span class="hotspot-plus-dot">+</span>
+              </a>
+            {% endif %}
+
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="hotspot-shared-popup" class="hotspot-popup">
+    <button class="hotspot-popup-close" aria-label="Close">
+      {% render 'icon-close' %}
+    </button>
+    <div class="hotspot-popup-content">
+      <div class="hotspot-container-media">
+        <div class="hotspot-featureimage-container">
+          <img id="popup-image" alt="" width="100%" height="100%">
+        </div>
+        <div>
+          <h3 id="popup-title"></h3>
+          <p id="popup-price"></p>
+          <p id="popup-description"></p>
+        </div>
+      </div>
+
+      <div id="variant-options">
+        {% assign color_option = null %}
+        {% assign size_option = null %}
+
+        {% for option in product.options_with_values %}
+          {% if option.name == 'Color' %}
+            {% assign color_option = option %}
+          {% elsif option.name == 'Size' %}
+            {% assign size_option = option %}
+          {% endif %}
+        {% endfor %}
+
+        {%- if color_option -%}
+          <div class="variants-label-field">
+            <label>{{ color_option.name }}</label>
+          </div>
+          <div class="main-variant-groups variant-group color-group">
+            {% for value in color_option.values %}
+              <label class="variant-button-label">
+                <input
+                  type="radio"
+                  name="option-color"
+                  value="{{ value }}"
+                  data-option="Color"
+                  class="variant-input"
+                >
+                <span class="main-variants">
+                  <span style="background-color: {{ value | downcase }};" class="variant-color-swatch"></span>
+                  <span class="variant-button">{{ value }}</span>
+                </span>
+              </label>
+            {% endfor %}
+          </div>
+        {%- endif -%}
+
+        <div class="variants-label-field">
+          <label for="size-select">{{ size_option.name }}</label>
+        </div>
+        <div class="custom-dropdown" data-option="Size">
+          <div class="dropdown-toggle">
+            Choose your size
+            <div class="choose-size">
+          {% render 'icon-arrowdropdown' %}
+          </div>
+          </div>
+          <ul class="dropdown-menu">
+            {% for value in size_option.values %}
+              <li class="dropdown-item" data-value="{{ value }}">{{ value }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <input type="hidden" class="variant-select" data-option="Size">
+      </div>
+      <p id="variant-error-message" class="variant-error-message hidden">
+        Please select all options before adding to cart.
+      </p>
+      <button href="#" id="popup-link" class="button">
+        Add to cart
+        {% render 'icon-atcleft-arrow' %}
+      </button>
+    </div>
+  </div>
+  <div class="hotspot-overlay" id="hotspot-overlay"></div>
+</hotspot-section>
+
+{% schema %}
+{
+  "name": "Hotspot Image Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hot_spot_heading",
+      "label": "Hotspot Heading",
+      "default": "Tisso vison in the wild"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Padding top",
+      "default": 32,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom",
+      "label": "Padding bottom",
+      "default": 32,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "hotspot_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "range",
+          "id": "position_top",
+          "label": "Hotspot Top Position (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "position_left",
+          "label": "Hotspot Left Position (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hotspot Image Grid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
