@@ -1,5 +1,5 @@
 # santhosh-k
-# 🛍️ Santhosh-K Shopify Theme Customization
+# 🛍️ Santhosh-K Shopify Assignment
 
 This project contains custom Shopify theme development for the **Santhosh-K** e-commerce store. The work was done under the branch `new-ecom-expert-final-sk` and submitted via Pull Request #1.
 
