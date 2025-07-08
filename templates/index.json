@@ -1,75 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero_banner_VKgQTc": {
+      "type": "Hero-Banner",
+      "name": "Hero Banner With Text",
+      "settings": {
+        "banner_image": "shopify://shop_images/Frame.png",
+        "heading": "",
+        "description": "",
+        "mobile_description": "Discover Joy: Your Ultimate Holiday Gift Destination.",
+        "button_text": "",
+        "button_link": "",
+        "layout_direction": "image_right"
+      }
+    },
+    "hero_banner_wNQLTA": {
+      "type": "Hero-Banner",
+      "name": "Hero Banner With Text",
+      "settings": {
+        "banner_image": "shopify://shop_images/Frame_1.png",
+        "heading": "The Gift Guide",
+        "description": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "mobile_description": "Discover Joy: Your Ultimate Holiday Gift Destination.",
+        "button_text": "Shop Now",
+        "button_link": "",
+        "layout_direction": "image_right"
+      }
+    },
+    "custom_richtext_ThRBrE": {
+      "type": "custom-richtext",
+      "name": "Custom Rich Text",
+      "settings": {
+        "heading": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+        "heading_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR",
+        "text_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "#f7f7f7"
+      }
+    },
+    "main_hot_spot_KG9zzG": {
+      "type": "Main-hotSpot",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "hotspot_whPxDV": {
+          "type": "hotspot",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "hotspot_image": "shopify://shop_images/image_822.png",
+            "product": "black-leather-bag",
+            "position_top": 55,
+            "position_left": 60
           }
         },
-        "button": {
-          "type": "buttons",
+        "hotspot_KFDR4K": {
+          "type": "hotspot",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "hotspot_image": "shopify://shop_images/image_823.png",
+            "product": "blue-silk-tuxedo",
+            "position_top": 53,
+            "position_left": 85
+          }
+        },
+        "hotspot_hnefrn": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_824.png",
+            "product": "chequered-red-shirt",
+            "position_top": 20,
+            "position_left": 62
+          }
+        },
+        "hotspot_dY4AQY": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_825.png",
+            "product": "classic-leather-jacket",
+            "position_top": 19,
+            "position_left": 71
+          }
+        },
+        "hotspot_8w3pVw": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_826.png",
+            "product": "classic-varsity-top",
+            "position_top": 25,
+            "position_left": 52
+          }
+        },
+        "hotspot_RiitPh": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_image": "shopify://shop_images/image_827.png",
+            "product": "dark-denim-top",
+            "position_top": 40,
+            "position_left": 75
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "hotspot_whPxDV",
+        "hotspot_KFDR4K",
+        "hotspot_hnefrn",
+        "hotspot_dY4AQY",
+        "hotspot_8w3pVw",
+        "hotspot_RiitPh"
       ],
+      "name": "Hotspot Image Grid",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "hot_spot_heading": "Tisso vison in the wild",
+        "section-padding-top": 90,
+        "section-padding-bottom": 30,
+        "mobile-padding-top": 40,
+        "mobile-padding-bottom": 20
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero_banner_VKgQTc",
+    "hero_banner_wNQLTA",
+    "custom_richtext_ThRBrE",
+    "main_hot_spot_KG9zzG"
   ]
 }
